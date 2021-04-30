@@ -1,0 +1,34 @@
+.header {
+  background-color: #03254c;
+  color: white;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+/* Customize the label (the container) */
+.row {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-check-input {
+  margin-top: 10px;
+}
+
+.row {
+  border-bottom: solid black 2px;
+}
+
+.form-check-input:checked ~ .form-check-label {
+  text-decoration: line-through;
+}
