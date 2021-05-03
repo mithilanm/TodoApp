@@ -13,22 +13,14 @@
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
-  cursor: pointer;
   font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .form-check-input {
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .row {
   border-bottom: solid black 2px;
-}
-
-.form-check-input:checked ~ .form-check-label {
-  text-decoration: line-through;
 }
