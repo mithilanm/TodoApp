@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
-import { faCoffee, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faPen, faPlus, faTasks, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,14 +13,18 @@ import { faCoffee, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
   title = 'Todo App';
   textName: string;
-  textIndex: number;
+  textIndex: number = -1;
   taskForm: FormGroup;
+  editTaskForm: FormGroup;
   shownTasks: Task[];
   editMode = false;
   numOfTasks = 0;
   numOfCompleted = 0;
+
   faTrash = faTrash;
   faPen = faPen;
+  faPlus = faPlus;
+  faTasks = faTasks;
 
   constructor(private taskService: TaskService){}
 
@@ -38,8 +42,9 @@ export class AppComponent {
 
   onSubmit(){
     if(this.editMode){
-      this.taskService.updateTask(this.taskForm.value, this.textIndex);
+      this.taskService.updateTask(this.editTaskForm.value, this.textIndex);
       this.editMode = false;
+      this.textIndex = -1;
     } else {
       this.taskService.addTask(this.taskForm.value);
       this.numOfTasks++;
@@ -54,9 +59,11 @@ export class AppComponent {
   }
 
   onDelete(){
+    this.taskService.getTaskStatus(this.textIndex)?this.numOfCompleted--:null;
     this.taskService.deleteTask(this.textIndex);
     this.numOfTasks--;
     this.editMode = false;
+    this.textIndex = -1;
     this.taskForm.reset();
   }
 
@@ -67,9 +74,14 @@ export class AppComponent {
 
   private initForm(){
     let taskName = '';
+    let editTaskName = '';
 
     this.taskForm = new FormGroup({
       'task': new FormControl(taskName, Validators.required)
+    })
+
+    this.editTaskForm = new FormGroup({
+      'task': new FormControl(editTaskName, Validators.required)
     })
   }
 

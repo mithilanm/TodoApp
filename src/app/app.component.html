@@ -1,11 +1,12 @@
 <div class="text-center">
     <div class="header">
-        <h1>Todo App</h1>
+        <h1><fa-icon [icon]="faTasks" class="taskIcon"></fa-icon>Todo App</h1>
     </div>
         <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-            <input type="text" [(ngModel)]="textName" required placeholder="Task" formControlName="task" #task>
-            <button class="btn btn-primary" type="submit" [disabled]="!taskForm.valid">{{editMode?'Update':'Add'}}</button>
-            <button class="btn btn-danger" type="button" *ngIf="editMode" (click)='onDelete()'>Delete</button>
+            <input type="text" required placeholder="Task" formControlName="task" #task>
+            <button class="btn btn-primary" type="submit" [disabled]="!taskForm.valid">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
         </form>
 </div>
 <div class="container">
@@ -17,14 +18,16 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value={{item.task}} id="flexCheckDefault" (click)="checked(i)">
             <label class="form-check-label" for={{item.task}}>
-                <a (click)="onEdit(item, i)" *ngIf="!editMode">{{item.task}}</a>
-                <input type="text" [(ngModel)]="textName" *ngIf="editMode">
-                <button class="btn btn-success" *ngIf="textName == item.task">
-                    <fa-icon [icon]="faPen"></fa-icon>
-                </button>
-                <button class="btn btn-danger" *ngIf="textName == item.task" (click)="onDelete()">
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                </button>
+                <a (click)="onEdit(item, i)"  *ngIf="textIndex!=i">{{item.task}}</a>
+                <form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()" *ngIf="textIndex == i  && editMode">
+                    <input type="text" [(ngModel)]="textName" formControlName="task" #task >
+                    <button class="btn btn-success" type="submit">
+                        <fa-icon [icon]="faPen"></fa-icon>
+                    </button>
+                    <button class="btn btn-danger" (click)="onDelete()">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </form>
             </label>
         </div>
     </div>

@@ -24,3 +24,7 @@
 .row {
   border-bottom: solid black 2px;
 }
+
+.taskIcon {
+  margin-right: 10px;
+}
