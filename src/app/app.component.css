@@ -1,6 +1,8 @@
 .header {
   background-color: #03254c;
   color: white;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -22,9 +24,13 @@
 }
 
 .row {
-  border-bottom: solid black 2px;
+  border-bottom: solid white 2px;
 }
 
 .taskIcon {
   margin-right: 10px;
+}
+
+.container {
+  color: white;
 }
