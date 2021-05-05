@@ -3,7 +3,7 @@
         <h1><fa-icon [icon]="faTasks" class="taskIcon"></fa-icon>Todo App</h1>
     </div>
         <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-            <input type="text" required placeholder="Task" formControlName="task" #task>
+            <input type="text" class="col-sm-4" required placeholder="Task" formControlName="task" #task>
             <button class="btn btn-primary" type="submit" [disabled]="!taskForm.valid">
                 <fa-icon [icon]="faPlus"></fa-icon>
             </button>
@@ -11,14 +11,28 @@
 </div>
 <div class="container">
     <div class="row">
-        <h1>Tasks ({{numOfTasks}})</h1>
+        <h1>
+            <div class="dropdown show" id="filter">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <fa-icon [icon]="faFilter"></fa-icon>
+                </a>
+            
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" (click)="filter='all'">All</a>
+                    <a class="dropdown-item" (click)="filter='completed'">Completed</a>
+                    <a class="dropdown-item"(click)="filter='pending'">Pending</a>
+                </div>
+            </div>
+            Tasks ({{numOfTasks}})
+        </h1>
         <p>Completed: {{numOfCompleted}}</p> <p>Pending: {{numOfTasks - numOfCompleted}}</p>
     </div>
-    <div class="row" *ngFor="let item of shownTasks; let i=index;">
+    <div class="row" *ngFor="let item of shownTasks | taskFilter: filter; let i=index;">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value={{item.task}} id="flexCheckDefault" (click)="checked(i)">
+            <input class="form-check-input" type="checkbox" value={{item.task}} id="flexCheckDefault" (click)="checked(i)" [(ngModel)]="item.checked" [disabled]="textIndex == i && editMode">
             <label class="form-check-label" for={{item.task}}>
-                <a (click)="onEdit(item, i)"  *ngIf="textIndex!=i">{{item.task}}</a>
+                <a (click)="filter=='all'?onEdit(item, i):null"  *ngIf="textIndex!=i">{{item.task}}</a>
                 <form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()" *ngIf="textIndex == i  && editMode">
                     <input type="text" [(ngModel)]="textName" formControlName="task" #task >
                     <button class="btn btn-success" type="submit">
