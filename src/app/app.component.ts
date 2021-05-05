@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
-import { faCoffee, faPen, faPlus, faTasks, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faPen, faPlus, faTasks, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -14,17 +14,21 @@ export class AppComponent {
   title = 'Todo App';
   textName: string;
   textIndex: number = -1;
+  textChecked: boolean;
   taskForm: FormGroup;
   editTaskForm: FormGroup;
   shownTasks: Task[];
   editMode = false;
   numOfTasks = 0;
   numOfCompleted = 0;
+  filter: string = 'all';
+
 
   faTrash = faTrash;
   faPen = faPen;
   faPlus = faPlus;
   faTasks = faTasks;
+  faFilter = faFilter;
 
   constructor(private taskService: TaskService){}
 
@@ -42,6 +46,7 @@ export class AppComponent {
 
   onSubmit(){
     if(this.editMode){
+      this.editTaskForm.value.checked = this.textChecked;
       this.taskService.updateTask(this.editTaskForm.value, this.textIndex);
       this.editMode = false;
       this.textIndex = -1;
@@ -56,6 +61,7 @@ export class AppComponent {
     this.editMode = true;
     this.textName = chosenTask.task;
     this.textIndex = chosenIndex;
+    this.textChecked = chosenTask.checked;
   }
 
   onDelete(){

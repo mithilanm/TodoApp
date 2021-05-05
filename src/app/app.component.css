@@ -34,3 +34,11 @@
 .container {
   color: white;
 }
+
+#filter {
+  float: right;
+}
+
+a {
+  cursor: pointer;
+}
