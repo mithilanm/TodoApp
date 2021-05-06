@@ -1,4 +1,6 @@
 # TodoApp
+Simple Todo App built using the Angular framework that will allow users to add, edit, update and delete tasks. Filter features will show total tasks, completed tasks and unfinished tasks.
+
 You can experience this application through the following url: https://mithilanm.github.io/TodoApp/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
