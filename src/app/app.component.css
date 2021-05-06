@@ -42,3 +42,8 @@
 a {
   cursor: pointer;
 }
+
+#plus {
+  float: none;
+  display: inline-block;
+}
