@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-html {
+body.dark-mode {
   background-color: #121212;
   height: 100vh;
   margin: auto 0;
+  color: white;
 }
 
-body {
-  background-color: transparent;
+body.light-mode {
+  background-color: #dfe6e9;
+  height: 100vh;
+  margin: auto 0;
+  color: #2d3436;
 }
