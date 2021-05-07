@@ -5,13 +5,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DarkModeToggle } from './dark-mode-toggle.component';
 import { TaskFilterPipe } from './task-filter.pipe';
 import { TaskService } from './task.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskFilterPipe
+    TaskFilterPipe,
+    DarkModeToggle
   ],
   imports: [
     BrowserModule,

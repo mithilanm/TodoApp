@@ -3,6 +3,7 @@
         <h1><fa-icon [icon]="faTasks" class="taskIcon"></fa-icon>Todo App</h1>
     </div>
 </div>
+<app-dark-mode-toggle></app-dark-mode-toggle>
 <div class="container">
     <div class="row">
         <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="text-center">
