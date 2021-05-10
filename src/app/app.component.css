@@ -1,8 +1,8 @@
 .header {
   background-color: #03254c;
-  color: white;
   padding: 10px;
   margin-bottom: 10px;
+  color: white;
 }
 
 .btn {
@@ -16,31 +16,16 @@
   padding-left: 35px;
   margin-bottom: 12px;
   font-size: 22px;
-}
-
-.form-check-input {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.row {
-  border-bottom: solid white 2px;
+  border-bottom: solid 2px;
 }
 
 .taskIcon {
   margin-right: 10px;
 }
 
-.container {
-  color: white;
-}
-
-#filter {
-  float: right;
-}
-
-a {
-  cursor: pointer;
+#plus {
+  float: none;
+  display: inline-block;
 }
 
 #plus {

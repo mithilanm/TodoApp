@@ -1,0 +1,19 @@
+<div class="row">
+    <h1>
+        <div class="dropdown show" id="filter">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                <fa-icon [icon]="faFilter"></fa-icon>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" (click)="filterChange('all')">All</a>
+                <a class="dropdown-item" (click)="filterChange('completed')">Completed</a>
+                <a class="dropdown-item" (click)="filterChange('pending')">Pending</a>
+            </div>
+        </div>
+        Tasks ({{getTasks()}})
+    </h1>
+    <p>Completed: {{getCompleted()}}</p>
+    <p>Pending: {{getTasks() - getCompleted()}}</p>
+</div>

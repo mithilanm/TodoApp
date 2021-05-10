@@ -1,0 +1,19 @@
+<div class="row" *ngFor="let item of shownTasks | taskFilter: filterReceived; let i=index;">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value={{item.task}} id="flexCheckDefault"
+            (click)="checked(shownTasks.indexOf(item))" [(ngModel)]="item.checked"
+            [disabled]="textIndex == i && editMode">
+        <label class="form-check-label" for={{item.task}}>
+            <a (click)="filterReceived=='all'?onEdit(item, i):null" *ngIf="textIndex!=i">{{item.task}}</a>
+            <form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()" *ngIf="textIndex == i  && editMode">
+                <input type="text" [(ngModel)]="textName" formControlName="task" #task>
+                <button class="btn btn-success" type="submit">
+                    <fa-icon [icon]="faPen"></fa-icon>
+                </button>
+                <button class="btn btn-danger" (click)="onDelete()">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+            </form>
+        </label>
+    </div>
+</div>

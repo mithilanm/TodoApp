@@ -1,0 +1,16 @@
+.row {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 22px;
+  border-bottom: solid 2px;
+}
+
+#filter {
+  float: right;
+}
+
+a {
+  cursor: pointer;
+}
