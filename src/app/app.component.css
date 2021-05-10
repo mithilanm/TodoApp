@@ -19,21 +19,8 @@
   border-bottom: solid 2px;
 }
 
-.form-check-input {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
 .taskIcon {
   margin-right: 10px;
-}
-
-#filter {
-  float: right;
-}
-
-a {
-  cursor: pointer;
 }
 
 #plus {

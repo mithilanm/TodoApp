@@ -5,9 +5,27 @@ import { Task } from "./task.model";
 export class TaskService{
     taskChanged = new EventEmitter<Task[]>();
     private tasks: Task[] = [];
+    numOfTasks = 0;
+    numOfCompleted = 0;
 
     getTask(){
         return this.tasks.slice();
+    }
+
+    incNumOfTasks(){
+        return this.numOfTasks++;
+    }
+
+    decNumOfTasks(){
+        return this.numOfTasks--;
+    }
+
+    incNumOfCompleted(){
+        return this.numOfCompleted++;
+    }
+
+    decNumOfCompleted(){
+        return this.numOfCompleted--;
     }
 
     getTaskStatus(index: number){

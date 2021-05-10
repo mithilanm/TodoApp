@@ -1,0 +1,12 @@
+<div class="row">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="text-center">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" required placeholder="Task" formControlName="task" #task>
+            <div class="input-group-append">
+                <button class="btn btn-primary" id="plus" type="submit" [disabled]="!taskForm.valid">
+                    <fa-icon [icon]="faPlus"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
