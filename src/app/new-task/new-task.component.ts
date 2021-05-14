@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { DataStorageService } from '../shared/data-storage.service';
 import { TaskService } from '../task/task.service';
 
 @Component({

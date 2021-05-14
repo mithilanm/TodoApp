@@ -11,6 +11,7 @@ import { TaskService } from './task/task.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { FilterComponent } from './filter/filter.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FilterComponent } from './filter/filter.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

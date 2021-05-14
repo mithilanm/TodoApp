@@ -51,4 +51,9 @@ export class TaskService{
         this.tasks[index].checked=!this.tasks[index].checked;
         this.taskChanged.next(this.tasks.slice());
     }
+
+    setTasks(tasks: Task[]){
+        this.tasks = tasks;
+        this.taskChanged.next(this.tasks.slice());
+    }
 }

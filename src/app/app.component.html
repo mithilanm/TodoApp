@@ -8,6 +8,8 @@
     <app-new-task></app-new-task>
     <app-filter (filterChanged)="sendToList($event)"></app-filter>
     <app-todo-list [filterReceived]="filterReceived"></app-todo-list>
+    <button class="btn btn-primary" (click)="onFetch()">Fetch Tasks</button>
+    <div class="btn btn-danger" (click)="onSave()">Save Tasks</div>
 </div>
 
 
